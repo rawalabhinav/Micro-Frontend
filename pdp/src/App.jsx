@@ -11,8 +11,7 @@ import Footer from "home/Footer";
 const App = () => {
     return (
     <div className="text-3xl mx-auto max-w-6xl">
-        <SafeComponent>
-        <Header />
+        <SafeComponent> <Header />
         </SafeComponent>
         <div className="my-10"> PDP page content </div>
         <Footer />
