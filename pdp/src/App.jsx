@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import "./index.scss";
 
 // Make sure the local path is not referred
@@ -9,15 +9,16 @@ import Footer from "home/Footer";
 import PDPContent from './PDPContent';
 
 const App = () => {
-    return (<Router>
+    return (
+    <Router>
         <div className="text-3xl mx-auto max-w-6xl">
             <Header />
-            <Switch>
-                <Route path="/product/:id" component={PDPContent} />
-            </Switch>
+            <Routes>
+                <Route path='/products/:id' element={ <PDPContent />} />
+            </Routes>
             <Footer />
-        
         </div>
-    </Router>);
+    </Router>
+    );
 };
 ReactDOM.render(<App />, document.getElementById("app"));

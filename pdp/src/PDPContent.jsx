@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-
-import {getProductById, currency} from "home/products"
+import {useParams} from "react-router-dom";
+import {getProductById, currency} from "home/products";
 
 export default function PDPContent(){
-    const [product, setProduct] = useState([]);
+    const {id} = useParams();
+    const [product, setProduct] = useState(null);
 
     useEffect(() => {
         if (id){
-            getProductById().then((product) => {
-                setProduct(product);
-            });
+            getProductById(id).then(setProduct);
+            console.log(id);
         }       
         else {
             setProduct(null);
@@ -21,20 +21,19 @@ export default function PDPContent(){
     }
 
     return (
-        <div className="grid grid-col-2 gap-5">
+        <div className="grid grid-cols-2 gap-5 m-10">
             <div>
                 <img src={product.image} alt={product.name} />
             </div>
-            <div> 
+            <div className="text-2xl"> 
                 <div className="flex">
-                    <h1 className="font-bold text-3xl flex-grow">{product.name}</h1>
-                    <div className="font-bold text-3xl flex-end">
+                    <h1 className="font-bold flex-grow">{product.name}</h1>
+                    <div className="font-bold flex-end">
                         {currency.format(product.price)}
                     </div>
-                    <div className="mt-10">{product.description}</div>
-                    <div className="mt-10">{product.longDescription}</div>
                 </div>
+                <div className="mt-10">{product.description}</div>
+                <div className="mt-10">{product.longDescription}</div>
             </div>
-        </div>
-    );
+        </div>);
 }
