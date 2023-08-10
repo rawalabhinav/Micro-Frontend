@@ -3,8 +3,17 @@ import ReactDOM from "react-dom";
 
 import "./index.scss";
 
-const App = () => (
-  <div className="mt-10 text-3xl mx-auto max-w-6xl">
-  </div>
-);
+import Header from "home/Header";
+import Footer from "home/Footer";
+import CartContent from "./CartContent";
+
+const App = () => {
+    return (
+    <div>
+        <Header />
+        <CartContent />
+        <Footer />
+    </div>
+    )
+};
 ReactDOM.render(<App />, document.getElementById("app"));
