@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 import "./index.scss";
-import "remixicon/font/remixicon.css"
+import "remixicon/fonts/remixicon.css";
 
 
 // Make sure the local path is not referred
