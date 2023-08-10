@@ -1,7 +1,7 @@
-import { BehaviourSubject} from "rxjs";
+import { BehaviorSubject} from "rxjs";
 
 const API_SERVER = "http://localhost:8080";
-export const jwt = new BehaviourSubject(null);
+export const jwt = new BehaviorSubject(null);
 
 // Not dealing with route protection/ error routes
 export const login = (username, password) => fetch(`${API_SERVER}/auth/login`, {
